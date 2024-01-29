@@ -41,6 +41,8 @@ file_confirm_overwrite (GtkWidget * dlg)
 
   return TRUE;
 }
+/* mod: show also remote locations */
+gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (dialog), FALSE);
 
 GtkWidget *
 file_create_widget (GtkWidget * dlg)
@@ -64,8 +66,6 @@ file_create_widget (GtkWidget * dlg)
 
   w = filechooser = gtk_file_chooser_widget_new (action);
   gtk_widget_set_name (w, "yad-file-widget");
-  /* mod: show also remote locations */
-  gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (dialog), FALSE);
   if (options.common_data.uri)
     {
       if (!options.file_data.directory && g_file_test (options.common_data.uri, G_FILE_TEST_IS_DIR))
