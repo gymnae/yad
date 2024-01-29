@@ -109,10 +109,9 @@ file_create_widget (GtkWidget * dlg)
   g_signal_connect (w, "file-activated", G_CALLBACK (file_activated_cb), dlg);
 
   return w;
+  /* mod: show also remote locations */
+gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
 }
-/* mod: show also remote locations
-* gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
-*/
 void
 file_print_result (void)
 {
