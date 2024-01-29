@@ -41,8 +41,6 @@ file_confirm_overwrite (GtkWidget * dlg)
 
   return TRUE;
 }
-/* mod: show also remote locations */
-gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
 
 GtkWidget *
 file_create_widget (GtkWidget * dlg)
@@ -112,6 +110,8 @@ file_create_widget (GtkWidget * dlg)
 
   return w;
 }
+/* mod: show also remote locations */
+gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
 
 void
 file_print_result (void)
