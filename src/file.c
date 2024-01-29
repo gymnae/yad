@@ -92,7 +92,7 @@ file_create_widget (GtkWidget * dlg)
 
   if (options.common_data.multi)
     gtk_file_chooser_set_select_multiple (GTK_FILE_CHOOSER (w), TRUE);
-
+    gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
   /* add preview */
   if (options.common_data.preview)
     {
@@ -109,8 +109,9 @@ file_create_widget (GtkWidget * dlg)
   g_signal_connect (w, "file-activated", G_CALLBACK (file_activated_cb), dlg);
 
   return w;
-  /* mod: show also remote locations */
-gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
+  /* mod: show also remote locations
+* gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (w), FALSE);
+  */
 }
 void
 file_print_result (void)
